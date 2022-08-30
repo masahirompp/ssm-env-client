@@ -1,0 +1,75 @@
+{
+  "name": "ssm-env-client",
+  "version": "1.0.0",
+  "description": "aws-ssm wrapper to manage parameters for each service and environment",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf ./lib/",
+    "cm": "cz",
+    "lint": "xo --fix",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "test:run": "node -r dotenv/config --loader ts-node/esm ./test/test-cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masahirompp/ssm-env-client.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "masahirompp",
+    "email": "masahirompp@users.noreply.github.com",
+    "url": "https://github.com/masahirompp"
+  },
+  "engines": {
+    "node": ">=16.0"
+  },
+  "keywords": [
+    "aws",
+    "ssm",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/masahirompp/ssm-env-client/issues"
+  },
+  "homepage": "https://github.com/masahirompp/ssm-env-client#readme",
+  "devDependencies": {
+    "@aws-sdk/client-ssm": "^3.160.0",
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
+    "@types/inquirer": "^9.0.1",
+    "@types/node": "^18.7.14",
+    "commitizen": "^4.2.5",
+    "construct-typed-parameters": "^4.0.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^16.0.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "semantic-release": "^19.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.2",
+    "xo": "^0.52.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "xo --fix"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "dependencies": {
+    "@aws-sdk/client-ssm": "^3.160.0"
+  }
+}

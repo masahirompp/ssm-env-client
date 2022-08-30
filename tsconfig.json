@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "exactOptionalPropertyTypes": false,
+    "outDir": "lib",
+    "declaration": true
+  },
+  "exclude": ["lib"]
+}
