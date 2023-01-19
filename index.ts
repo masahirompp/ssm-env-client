@@ -172,11 +172,11 @@ export class SsmEnvClient {
     const loadParameters: (
       path: string,
       nextToken?: string
-    ) => Promise<Parameter[]> = async (path, nextToken) => {
+    ) => Promise<Parameter[]> = async (path, previousNextToken) => {
       const {Parameters, NextToken} = await this.ssmClient.send(
         new GetParametersByPathCommand({
           Path: path,
-          NextToken: nextToken,
+          NextToken: previousNextToken,
         }),
       );
       if (!Parameters) {
@@ -184,7 +184,7 @@ export class SsmEnvClient {
       }
 
       if (NextToken) {
-        return [...Parameters, ...(await loadParameters(path, nextToken))];
+        return [...Parameters, ...(await loadParameters(path, NextToken))];
       }
 
       return Parameters;
